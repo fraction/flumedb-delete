@@ -10,8 +10,11 @@
   "author": "Fraction",
   "license": "ISC",
   "dependencies": {
+    "flumecodec": "0.0.1",
     "flumedb": "^1.0.1",
     "flumelog-memory": "^0.1.3",
+    "flumelog-offset": "^3.3.2",
+    "mv": "^2.1.1",
     "pull-stream": "^3.6.9"
   }
 }
