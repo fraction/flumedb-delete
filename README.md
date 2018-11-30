@@ -9,6 +9,7 @@ is `"bob"`, and only appends messages that do *not* have that author.
 
 To completely delete content from flumedb, it may be wise to make sure that
 all views are regenerated as well. **This module does not regenerate views**.
+If being used with Scuttlebutt, **this module does not delete blobs**.
 
 ## Install
 
