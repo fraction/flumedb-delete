@@ -1,7 +1,7 @@
 {
   "name": "flumedb-delete",
   "version": "1.0.0",
-  "description": "my progress on deleting content from flumedb",
+  "description": "current progress on deleting content from flumedb",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
