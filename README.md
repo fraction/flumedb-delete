@@ -2,6 +2,14 @@
 
 > current progress on deleting content from flumedb
 
+The source code opens two instances of flumedb: `a` and `b`. Each of the
+messages are streamed with `a.stream()` and appended to be with `b.append()`
+as long as they pass the filter. The filter checks whether the message author
+is `"bob"`, and only appends messages that do *not* have that author.
+
+To completely delete content from flumedb, it may be wise to make sure that
+all views are regenerated as well. **This module does not regenerate views**.
+
 ## Install
 
 ```
