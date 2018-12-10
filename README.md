@@ -20,9 +20,23 @@ cd flumedb-delete
 
 ## Usage
 
+This module includes a small demonstration in `index.js`.
+
 ```
 npm start
 ```
+
+If you'd like to delete a Scuttlebutt feed, you can experiment with `ssb.js`.
+Please keep in mind that this is **highly experimental** and you should only
+participate in this experiment if you're comfortable with losing your SSB 
+database. I can't promise that this will work, but here's what I did:
+
+```
+node ssb.js
+ls ~/.ssb/flume/ | grep -v offset | xargs rm -rf
+```
+
+If you'd like to delete a different SSB feed, edit `ssb.js` manually.
 
 ## Maintainers
 
