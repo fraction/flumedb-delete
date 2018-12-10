@@ -31,9 +31,9 @@ Please keep in mind that this is **highly experimental** and you should only
 participate in this experiment if you're comfortable with losing your SSB 
 database. I can't promise that this will work, but here's what I did:
 
-```
+```sh
 node ssb.js
-ls ~/.ssb/flume/ | grep -v offset | xargs rm -rf
+node delete-views.js
 ```
 
 If you'd like to delete a different SSB feed, edit `ssb.js` manually.

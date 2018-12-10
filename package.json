@@ -16,5 +16,8 @@
     "flumelog-offset": "^3.3.2",
     "mv": "^2.1.1",
     "pull-stream": "^3.6.9"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.2"
   }
 }
