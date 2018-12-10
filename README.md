@@ -7,8 +7,6 @@ messages are streamed with `a.stream()` and appended to be with `b.append()`
 as long as they pass the filter. The filter checks whether the message author
 is `"bob"`, and only appends messages that do *not* have that author.
 
-To completely delete content from flumedb, it may be wise to make sure that
-all views are regenerated as well. **This module does not regenerate views**.
 If being used with Scuttlebutt, **this module does not delete blobs**.
 
 ## Install
@@ -29,12 +27,15 @@ npm start
 If you'd like to delete a Scuttlebutt feed, you can experiment with `ssb.js`.
 Please keep in mind that this is **highly experimental** and you should only
 participate in this experiment if you're comfortable with losing your SSB 
-database. I can't promise that this will work, but here's what I did:
+database.
 
-```sh
-node ssb.js
-node delete-views.js
-```
+1. Turn off all Scuttlebutt services.
+2. Delete content from your log with `node ssb.js`.
+3. Delete your views with `node delete-views.js`
+4. Restart Scuttlebutt
+5. Wait for views to regenerate.
+6. Keep waiting...
+7. Done! You've deleted a feed from your database.
 
 If you'd like to delete a different SSB feed, edit `ssb.js` manually.
 
