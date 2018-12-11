@@ -1,7 +1,7 @@
 const fs = require('fs')
 const os = require('os')
 const path = require('path')
-const rimraf = require('rimraf');
+const rimraf = require('rimraf')
 
 const flumePath = path.join(os.homedir(), '.ssb', 'flume')
 
