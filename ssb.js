@@ -10,9 +10,16 @@ const homedir = os.homedir()
 const file = path.join(homedir, '.ssb/flume/log.offset')
 const db = createDb(file)
 
+const ref = require('ssb-ref')
+const yargs = require('yargs').argv
+
 const compare = msg => {
   // ONLY RETURN TRUE WHEN MESSAGE SHOULD BE DELETED
-  return msg.value.author === '@+rMXLy1md42gvbBq+6l6rp95/drh6QyACO1ZZMMnWI0=.ed25519'
+  if (ref.isFeed(yargs.id)) {
+    return msg.value.author === yargs.id
+  } else {
+    return msg.value.author === '@+rMXLy1md42gvbBq+6l6rp95/drh6QyACO1ZZMMnWI0=.ed25519' 
+  }
 }
 
 del({ db, compare, file }, (err) => {

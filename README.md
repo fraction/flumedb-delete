@@ -24,6 +24,19 @@ This module includes a small demonstration in `index.js`.
 npm start
 ```
 
+To delete a feed, first select a valid ssb feed id, and run these two commands:
+
+```
+node ssb.js --id='feedId'
+node delete-views
+```
+
+It can also help to private block a feed, so that it doesn't resync later: 
+
+```
+scuttlebot publish --type contact --blocking --recps 'yourId' --contact 'feedId'
+```
+
 If you'd like to delete a Scuttlebutt feed, you can experiment with `ssb.js`.
 Please keep in mind that this is **highly experimental** and you should only
 participate in this experiment if you're comfortable with losing your SSB 
