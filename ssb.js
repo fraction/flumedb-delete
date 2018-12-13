@@ -18,7 +18,7 @@ const compare = msg => {
   if (ref.isFeed(yargs.id)) {
     return msg.value.author === yargs.id
   } else {
-    return msg.value.author === '@+rMXLy1md42gvbBq+6l6rp95/drh6QyACO1ZZMMnWI0=.ed25519' 
+    return msg.value.author === '@+rMXLy1md42gvbBq+6l6rp95/drh6QyACO1ZZMMnWI0=.ed25519'
   }
 }
 

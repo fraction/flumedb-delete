@@ -27,10 +27,8 @@ module.exports = (obj, cb) => {
   let fn
   if (typeof compare === 'function') {
     fn = compare
-    console.log('is function')
   } else {
     fn = shouldDelete
-    console.log('not function')
   }
 
   // for each message, either ignore (delete) or add to new log
