@@ -24,7 +24,7 @@ const db = createDb(file)
 const createComparator = (feedList) => (msg) => feedList.includes(msg.value.author)
 
 let isInitialValue = true // HACK: see todo regarding skipping initial value
-let haveBlockList = false // HACK: see todo regarding skipping initial value
+let haveBlockList = false
 
 mutant.watch(blockedById, (blockList) => {
   if (isInitialValue) {
