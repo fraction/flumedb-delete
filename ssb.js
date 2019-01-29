@@ -1,9 +1,9 @@
 const codec = require('flumecodec')
 const flume = require('flumedb')
 const log = require('flumelog-offset')
-const del = require('./delete')
 const os = require('os')
 const path = require('path')
+const del = require('./lib/delete')
 
 const createDb = (file) => flume(log(file, { codec: codec.json }))
 const homedir = os.homedir()
@@ -15,6 +15,10 @@ const yargs = require('yargs').argv
 
 const compare = msg => {
   // ONLY RETURN TRUE WHEN MESSAGE SHOULD BE DELETED
+  if (msg.value == null) {
+    return false
+  }
+
   if (ref.isFeed(yargs.id)) {
     return msg.value.author === yargs.id
   } else {

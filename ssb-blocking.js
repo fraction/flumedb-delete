@@ -4,9 +4,10 @@ const mutant = require('mutant')
 const codec = require('flumecodec')
 const flume = require('flumedb')
 const log = require('flumelog-offset')
-const del = require('./delete')
 const os = require('os')
 const path = require('path')
+
+const del = require('./lib/delete')
 
 const api = combine([patchcore])
 
@@ -21,7 +22,7 @@ const db = createDb(file)
 
 // Input: list of IDs
 // Output: function that checks whether message was authored by any ID in list
-const createComparator = (feedList) => (msg) => feedList.includes(msg.value.author)
+const createComparator = (feedList) => (msg) => msg && msg.value && feedList.includes(msg.value.author)
 
 let isInitialValue = true // HACK: see todo regarding skipping initial value
 let haveBlockList = false
