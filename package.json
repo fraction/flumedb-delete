@@ -15,9 +15,10 @@
     "flumedb": "github:flumedb/flumedb#del-only",
     "flumelog-offset": "github:flumedb/flumelog-offset#del",
     "mutant": "^3.22.1",
-    "patchcore": "^2.1.0",
+    "patchcore": "^2.1.4",
     "pull-stream": "^3.6.9",
-    "ssb-ref": "^2.13.8",
+    "rimraf": "^2.6.3",
+    "ssb-ref": "^2.13.9",
     "yargs": "^12.0.5"
   }
 }
