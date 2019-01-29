@@ -22,39 +22,27 @@ const shouldDelete = msg => msg.author === 'bob'
 // once all of the non-deleted messages are added to the second db, we replace a with b
 
 module.exports = (obj, cb) => {
-  const { db, compare, file } = obj
+  let { db, compare, file } = obj
 
-  let fn
-  if (typeof compare === 'function') {
-    fn = compare
-  } else {
-    fn = shouldDelete
-  }
+  compare = compare || shouldDelete
 
   // for each message, either ignore (delete) or add to new log
-  const onEachMessage = msg => {
-    if (fn(msg)) {
-      console.log('deleted:', msg)
-    } else {
-      b.append(msg, function (err, seq) {
+  const onEachMessage = item => {
+    const msg = item.value
+
+    if (compare(msg)) {
+      console.log('deleting:', item)
+      db.del(item.seq, (err) => {
         if (err) throw err
+        console.log('deleted!')
       })
     }
   }
 
-  const onDone = () => {
-    // overwrite the real db with the temporary db
-    mv(paths.tmp, file || paths.db, function (err) {
-      if (err) return cb(err)
-      console.log('done with delete')
-      cb(null)
-    })
-  }
-
   pull(
     // we start a pull stream, ignoring the sequence numbers
-    db.stream({ seqs: false }),
+    db.stream({ seqs: true }),
     // now we add the messages from the first db to the second db
-    drain(onEachMessage, onDone)
+    drain(onEachMessage)
   )
 }
