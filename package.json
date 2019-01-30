@@ -10,6 +10,7 @@
   "author": "Fraction",
   "license": "ISC",
   "dependencies": {
+    "debug": "^4.1.1",
     "depject": "^4.1.1",
     "flumecodec": "0.0.1",
     "flumedb": "github:flumedb/flumedb#del-only",
@@ -18,7 +19,15 @@
     "patchcore": "^2.1.4",
     "pull-stream": "^3.6.9",
     "rimraf": "^2.6.3",
+    "ssb-config": "^3.2.3",
     "ssb-ref": "^2.13.9",
     "yargs": "^12.0.5"
+  },
+  "devDependencies": {
+    "ssb-friends": "^3.1.12",
+    "ssb-gossip": "^1.0.4",
+    "ssb-replicate": "^1.0.4",
+    "ssb-server": "github:ssbc/ssb-server#del",
+    "tape": "^4.9.2"
   }
 }
