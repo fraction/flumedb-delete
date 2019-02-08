@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "ssb-friends": "^3.1.12",
-    "ssb-gossip": "^1.0.4",
+    "ssb-gossip": "^1.0.5",
     "ssb-replicate": "^1.0.4",
     "ssb-server": "github:ssbc/ssb-server#del",
     "tape": "^4.9.2"

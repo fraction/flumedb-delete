@@ -24,6 +24,10 @@ exports.init = (sbot) => {
   let isInitialValue = true // HACK: see todo regarding skipping initial value
   let haveBlockList = false
 
+  const manualDeleteList = [
+    '@00000000000000000000000000000000000000000000.ed25519'
+  ]
+
   mutant.watch(blockedById, (blockList) => {
     if (isInitialValue) {
       // TODO: How should the initial value be skipped?
@@ -40,7 +44,7 @@ exports.init = (sbot) => {
       if (haveBlockList === false) {
         haveBlockList = true
         debug('block list:', blockList)
-        const compare = createComparator(blockList)
+        const compare = createComparator(blockList.concat(manualDeleteList))
         // For each message, either ignore (delete) or add to new log
         const onEachMessage = item => {
           const msg = item.value
